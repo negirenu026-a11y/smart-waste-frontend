@@ -1,0 +1,22 @@
+.causes-item {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.causes-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.causes-img img {
+    height: 240px;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.causes-item:hover .causes-img img {
+    transform: scale(1.05);
+}
+
+.causes-content .progress {
+    background-color: #e9ecef;
+}
