@@ -10,7 +10,7 @@ function Navigation() {
       <div className="top-bar bg-success text-white py-2">
         <div className="container-fluid px-3 d-flex justify-content-between align-items-center">
           <div className="top-header-left small text-truncate">
-            <i className="bi bi-envelope me-2"></i> ranunegi407@gmail.com
+            <i className="bi bi-envelope me-2"></i> ranunegi407@gmail.coms
             <span className="mx-3 d-none d-md-inline">|</span>
             <span className="d-none d-md-inline">
               <i className="bi bi-phone me-2"></i> +91 80910-18394

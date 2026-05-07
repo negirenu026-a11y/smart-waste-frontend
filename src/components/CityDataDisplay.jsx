@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
+const api = import.meta.env.VITE_API_URL
+
 const CityDataDisplay = () => {
   const [selectedState, setSelectedState] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
@@ -27,7 +30,7 @@ const CityDataDisplay = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get(`http://localhost:4000/api/city-data/${city}`);
+        const response = await axios.get(`api/${city}`);
         if (response.data.success) {
           setCityData(response.data.data);
         } else {
