@@ -4,6 +4,7 @@ import api from '../utils/api';
 import { toast } from 'react-toastify';
 import './Auth.css';
 
+
 const countryOptions = [
     "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina", "Armenia", "Australia",
     "Austria", "Azerbaijan", "Bahrain", "Bangladesh", "Belarus", "Belgium", "Bhutan", "Bolivia",

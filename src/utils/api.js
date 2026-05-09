@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://smart-waste-backend-8rgj.onrender.com/api',
+    baseURL: import.meta.env.VITE_API_URL,
     withCredentials: true, // Required for cookies
 });
 
