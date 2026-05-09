@@ -194,7 +194,7 @@ export default function Auth() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
 
         setLoading(true);
         setError("");
@@ -242,8 +242,11 @@ export default function Auth() {
 
     return (
         <section className="section auth-page">
-            <div className="container auth-layout auth-layout--centered">
-                <div className="auth-card auth-card--centered mx-auto">
+            <div className="container auth-layout auth-layout--centered position-relative">
+                <button className="btn btn-light rounded-circle shadow-sm mb-4" onClick={() => navigate('/')} style={{ width: '45px', height: '45px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <i className="fas fa-arrow-left"></i>
+                </button>
+                <div className="auth-card shadow-lg border-0 mx-auto">
 
                     <div className="auth-switch">
                         <button type="button" className={authMode === "register" && !forgotMode ? "is-active" : ""} onClick={() => { setAuthMode("register"); setForgotMode(null); setError(""); }}>

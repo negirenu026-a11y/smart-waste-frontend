@@ -333,7 +333,20 @@
         padding: 2rem 1.5rem;
         border-radius: 16px;
     }
-    .auth-form h3 { font-size: 1.25rem; }
-    .auth-admin-trigger { top: 0.75rem; right: 0.75rem; padding: 6px 10px; font-size: 0.7rem; }
-    .admin-modal { padding: 2rem 1.5rem; margin: 1rem; }
+
+    .auth-form h3 {
+        font-size: 1.25rem;
+    }
+
+    .auth-admin-trigger {
+        top: 0.75rem;
+        right: 0.75rem;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+    }
+
+    .admin-modal {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
 }

@@ -203,11 +203,13 @@ function Navigation() {
         .nb-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         @media (max-width: 900px) {
+          body { padding-top: calc(36px + 65px); }
           .nb-desktop { display: none !important; }
           .nb-hamburger { display: flex; }
-          .nb-topbar { display: none !important; }
+          .nb-topbar { height: 36px; font-size: 0.65rem; padding: 0 0.75rem; }
+          .nb-topbar .mission { font-size: 0.62rem; }
           .nb-inner { padding: 0 1rem; }
-          .nb-navbar { height: 65px; }
+          .nb-navbar { height: 65px; top: 36px; }
         }
 
         /* ══════════════════════════════
