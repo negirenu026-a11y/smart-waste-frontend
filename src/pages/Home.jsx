@@ -96,39 +96,58 @@ function Home() {
     return () => clearInterval(timer)
   }, [heroSlides.length])
 
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !statsStarted) {
-          setStatsStarted(true)
-          const duration = 2000
-          const startTime = Date.now()
-
-          const animateCounters = () => {
-            const elapsed = Date.now() - startTime
-            const progress = Math.min(elapsed / duration, 1)
-            const easeProgress = 1 - Math.pow(1 - progress, 3)
-
-            setStatsCount({
-              projects: Math.floor(120 * easeProgress),
-              volunteers: Math.floor(24 * easeProgress),
-              people: Math.floor(35 * easeProgress),
-              awards: Math.floor(8 * easeProgress),
-            })
-
-            if (progress < 1) {
-              requestAnimationFrame(animateCounters)
-            }
-          }
-          animateCounters()
-        }
-      })
-    }, { threshold: 0.3 })
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsVisible(entry.isIntersecting);
+    }, { threshold: 0.1 });
+    
     if (statsRef.current) {
-      observer.observe(statsRef.current)
+      observer.observe(statsRef.current);
     }
-    return () => observer.disconnect()
-  }, [statsStarted])
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let animationFrameId;
+    let timeoutId;
+
+    const startLoop = () => {
+      const duration = 2000;
+      const startTime = performance.now();
+      
+      const animate = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        
+        setStatsCount({
+          projects: Math.floor(120 * ease),
+          volunteers: Math.floor(24 * ease),
+          people: Math.floor(35 * ease),
+          awards: Math.floor(8 * ease),
+        });
+
+        if (progress < 1) {
+          animationFrameId = requestAnimationFrame(animate);
+        } else {
+          timeoutId = setTimeout(startLoop, 3000); // 3s pause before next loop
+        }
+      };
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    startLoop();
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [isVisible]);
 
   return (
     <>

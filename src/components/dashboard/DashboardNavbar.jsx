@@ -86,9 +86,9 @@ const DashboardNavbar = ({ user }) => {
             <div className="dashboard-topbar__left">
                 <div className="search-bar">
                     <i className="fas fa-search" />
-                    <input 
-                        type="text" 
-                        placeholder="Search areas, complaints, workers..." 
+                    <input
+                        type="text"
+                        placeholder="Search areas, complaints, workers..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />

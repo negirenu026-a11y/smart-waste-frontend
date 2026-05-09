@@ -121,7 +121,8 @@ body.dark-mode {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  margin-left: 260px; /* Offset for fixed sidebar */
+  margin-left: 260px;
+  /* Offset for fixed sidebar */
 }
 
 .welcome-marquee {
@@ -293,8 +294,15 @@ body.dark-mode {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dashboard-section-wrap {
