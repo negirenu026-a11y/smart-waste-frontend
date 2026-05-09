@@ -59,8 +59,8 @@ const Managecomplaints = () => {
 
     const filteredByStatus = filter === "All" ? complaints : complaints.filter((c) => c.status === filter);
 
-    const filtered = filteredByStatus.filter(c => 
-        Object.values(c).some(val => 
+    const filtered = filteredByStatus.filter(c =>
+        Object.values(c).some(val =>
             String(val).toLowerCase().includes(searchTerm.toLowerCase())
         )
     );
@@ -73,16 +73,16 @@ const Managecomplaints = () => {
 
     return (
         <div className="dashboard-section-wrap p-4">
-            <header className="mb-4 d-flex justify-content-between align-items-center">
+            <header className="mb-4 d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
                 <div>
                     <h2 className="fw-bold">Global Complaint Management</h2>
-                    <p className="text-muted">Monitor and track waste management issues across all cities and zones.</p>
+                    <p className="text-muted mb-0">Monitor and track waste management issues across all cities and zones.</p>
                 </div>
             </header>
 
             <div className="row g-4 mb-4">
                 {['All', 'Pending', 'In Process', 'Resolved'].map((s) => (
-                    <div key={s} className="col-md-3">
+                    <div key={s} className="col-6 col-md-3">
                         <div
                             className={`dashboard-card p-3 shadow-sm border-0 bg-white text-center hover-lift ${filter === s ? 'border-bottom border-primary border-4' : ''}`}
                             onClick={() => setFilter(s)}

@@ -5,7 +5,7 @@ import api from "../../../utils/api";
 const McDashboard = () => {
     const { user } = useOutletContext();
     const navigate = useNavigate();
-    
+
     const [stats, setStats] = useState({
         workers: 0,
         workersOnLeave: 0,

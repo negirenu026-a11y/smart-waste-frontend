@@ -102,11 +102,11 @@ function Home() {
     const observer = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
     }, { threshold: 0.1 });
-    
+
     if (statsRef.current) {
       observer.observe(statsRef.current);
     }
-    
+
     return () => observer.disconnect();
   }, []);
 
@@ -119,12 +119,12 @@ function Home() {
     const startLoop = () => {
       const duration = 2000;
       const startTime = performance.now();
-      
+
       const animate = (now) => {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const ease = 1 - Math.pow(1 - progress, 3);
-        
+
         setStatsCount({
           projects: Math.floor(120 * ease),
           volunteers: Math.floor(24 * ease),
@@ -216,11 +216,19 @@ function Home() {
 }
 
 @keyframes scrollCards {
-  0% {
-    transform: translateX(0);
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .scrolling-card {
+    width: 280px;
   }
-  100% {
-    transform: translateX(-50%);
+  .hero-section {
+    height: 70vh !important;
+  }
+  .display-4 {
+    font-size: 2rem !important;
   }
 }
       `}</style>

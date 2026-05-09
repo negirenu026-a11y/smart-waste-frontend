@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from '../../utils/api';
 import { useSearch } from '../../context/SearchContext';
 
-const DashboardNavbar = ({ user }) => {
+const DashboardNavbar = ({ user, onToggleSidebar }) => {
     const [showNotif, setShowNotif] = useState(false);
     const [showUserMenu, setShowUserMenu] = useState(false);
     const [notifications, setNotifications] = useState([]);
@@ -83,8 +83,11 @@ const DashboardNavbar = ({ user }) => {
 
     return (
         <div className="dashboard-topbar">
-            <div className="dashboard-topbar__left">
-                <div className="search-bar">
+            <div className="dashboard-topbar__left d-flex align-items-center">
+                <button className="dashboard-hamburger d-lg-none" onClick={onToggleSidebar}>
+                    <i className="fas fa-bars" />
+                </button>
+                <div className="search-bar d-none d-md-flex">
                     <i className="fas fa-search" />
                     <input
                         type="text"

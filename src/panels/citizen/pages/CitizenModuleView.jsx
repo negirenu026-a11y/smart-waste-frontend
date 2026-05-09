@@ -62,13 +62,25 @@ const CitizenModuleView = () => {
     const loadHistory = async () => {
         // Load from LocalStorage first
         const localData = localStorage.getItem('citizen_complaints');
+        const localFeedback = localStorage.getItem('citizen_feedback');
         if (localData) setHistory(JSON.parse(localData));
+        if (localFeedback) setFeedback(JSON.parse(localFeedback));
 
         try {
             const res = await api.get("/complaints");
             const serverComplaints = res.data.complaints || [];
             setHistory(serverComplaints);
             localStorage.setItem('citizen_complaints', JSON.stringify(serverComplaints));
+
+            // Sync feedback state from server data
+            const serverFeedback = {};
+            serverComplaints.forEach(c => {
+                if (c.feedbackRating) {
+                    serverFeedback[c._id] = { rating: c.feedbackRating, comment: c.feedbackComment };
+                }
+            });
+            setFeedback(prev => ({ ...prev, ...serverFeedback }));
+            localStorage.setItem('citizen_feedback', JSON.stringify({ ...feedback, ...serverFeedback }));
         } catch (err) {
             console.error("Error fetching history:", err);
         }

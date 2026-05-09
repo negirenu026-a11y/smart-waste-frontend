@@ -205,6 +205,9 @@ function Navigation() {
         @media (max-width: 900px) {
           .nb-desktop { display: none !important; }
           .nb-hamburger { display: flex; }
+          .nb-topbar { display: none !important; }
+          .nb-inner { padding: 0 1rem; }
+          .nb-navbar { height: 65px; }
         }
 
         /* ══════════════════════════════

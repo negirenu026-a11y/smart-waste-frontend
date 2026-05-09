@@ -35,19 +35,23 @@ const DashboardLayout = ({ role }) => {
         }
     }, [role, navigate]);
 
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
     if (loading) return <div className="dashboard-loading">Loading...</div>;
 
     return (
-        <div className="dashboard-shell">
-            <DashboardSidebar role={user?.role || role} />
+        <div className={`dashboard-shell ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+            <DashboardSidebar role={user?.role || role} isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
             <main className="dashboard-main">
                 <div className="welcome-marquee">
                     <marquee scrollamount="5">
                         ♻️ Welcome to WasteWise Management Platform — Working towards a cleaner and greener environment ♻️
                     </marquee>
                 </div>
-                <DashboardNavbar user={user} />
-                <div className="dashboard-content">
+                <DashboardNavbar user={user} onToggleSidebar={toggleSidebar} />
+                <div className="dashboard-content" onClick={() => isSidebarOpen && setIsSidebarOpen(false)}>
                     <Outlet context={{ user }} />
                 </div>
             </main>

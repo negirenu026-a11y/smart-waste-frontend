@@ -144,11 +144,43 @@ const History = () => {
                                         <h6 className="fw-bold text-success mb-2"><i className="fas fa-check-circle me-2"></i>Issue Resolved</h6>
                                         <p className="small mb-2"><strong>Message:</strong> {selectedComplaint.completionNote || "Your issue has been resolved."}</p>
                                         {selectedComplaint.proofImage && (
-                                            <div className="text-center mt-2">
+                                            <div className="text-center mt-2 mb-3">
                                                 <label className="small fw-bold d-block text-muted text-start mb-1">Resolution Proof:</label>
                                                 <img src={`http://localhost:4000${selectedComplaint.proofImage}`} alt="Proof" className="img-fluid rounded border shadow-sm" style={{ maxHeight: '200px' }} />
                                             </div>
                                         )}
+
+                                        <div className="feedback-section border-top pt-3">
+                                            <label className="small fw-bold d-block mb-1 text-muted text-uppercase">Rate our Service</label>
+                                            {selectedComplaint.feedbackRating ? (
+                                                <div className="text-warning fs-5">
+                                                    {'★'.repeat(selectedComplaint.feedbackRating)}
+                                                    <span className="ms-2 text-muted small">Rating Saved</span>
+                                                </div>
+                                            ) : (
+                                                <div className="d-flex gap-2 fs-4">
+                                                    {[1, 2, 3, 4, 5].map(star => (
+                                                        <i
+                                                            key={star}
+                                                            className="far fa-star text-warning"
+                                                            style={{ cursor: 'pointer' }}
+                                                            onClick={async () => {
+                                                                try {
+                                                                    const res = await api.patch(`/complaints/${selectedComplaint._id}/feedback`, { rating: star, comment: 'Thank you!' });
+                                                                    if (res.data.success) {
+                                                                        toast.success("Thank you for your rating!");
+                                                                        setSelectedComplaint({ ...selectedComplaint, feedbackRating: star });
+                                                                        fetchHistory();
+                                                                    }
+                                                                } catch (err) {
+                                                                    toast.error("Failed to save rating.");
+                                                                }
+                                                            }}
+                                                        ></i>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
                                     </div>
                                 )}
                             </div>

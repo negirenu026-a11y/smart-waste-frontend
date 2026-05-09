@@ -72,8 +72,8 @@ const Managecitizens = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    const filteredCitizens = citizens.filter(c => 
-        Object.values(c).some(val => 
+    const filteredCitizens = citizens.filter(c =>
+        Object.values(c).some(val =>
             String(val).toLowerCase().includes(searchTerm.toLowerCase())
         )
     );
