@@ -339,7 +339,7 @@ function Navigation() {
       {/* ── MAIN NAVBAR ── */}
       <div className={`nb-navbar${scrolled ? ' scrolled' : ''}`}>
         <div className="nb-inner">
-          <NavLink className="nb-brand" to="/">Environs</NavLink>
+          <NavLink className="nb-brand" to="/">WasteWise</NavLink>
 
           {/* Desktop nav */}
           <div className="nb-desktop">
@@ -393,7 +393,7 @@ function Navigation() {
       <div className={`nb-drawer${drawerOpen ? ' open' : ''}`} role="dialog" aria-modal="true">
         {/* Header */}
         <div className="nb-drawer-head">
-          <NavLink className="brand" to="/" onClick={close}>Environs</NavLink>
+          <NavLink className="brand" to="/" onClick={close}>WasteWise</NavLink>
           <button className="nb-drawer-close" onClick={close} aria-label="Close">✕</button>
         </div>
 

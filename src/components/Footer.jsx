@@ -6,10 +6,10 @@ function Footer() {
       <div className="container">
         <div className="row gy-4">
           <div className="col-md-4">
-            <h5 className="mb-3 text-brand">Environs</h5>
+            <h5 className="mb-3 text-brand">WasteWise</h5>
             <p className="footer-text">
-              A nature-centered React Vite template for environmental
-              organizations, campaigns, and nonprofits.
+              WasteWise - A smart waste management system for cleaner cities
+              and better living. Report complaints and manage municipal services.
             </p>
           </div>
           <div className="col-md-4">
@@ -37,7 +37,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-bottom text-center mt-4 pt-3 border-top border-secondary opacity-75">
-          <small>© 2026 Environs. Built with React and Vite.</small>
+          <small>© 2026 WasteWise. Smart Waste Management System.</small>
         </div>
       </div>
     </footer>
