@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://your-backend-url.onrender.com/api/:path*"
+      "destination": "https://smart-waste-backend-8rgj.onrender.com/api/:path*"
     },
     {
       "source": "/(.*)",

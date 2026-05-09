@@ -104,7 +104,6 @@ export default function Auth() {
         role: "citizen",
         fullName: "",
         email: "",
-        phone: "",
         country: "",
         state: "",
         district: "",
@@ -145,7 +144,7 @@ export default function Auth() {
 
     const handleRequestOTP = async (e) => {
         e.preventDefault();
-        if (!forgotData.identifier) return toast.error("Please enter email or phone");
+        if (!forgotData.identifier) return toast.error("Please enter email address");
         setLoading(true);
         try {
             const res = await api.post("/forgot-password", {
@@ -196,12 +195,6 @@ export default function Auth() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        // Mobile Number Validation
-        const phoneRegex = /^[0-9]{10}$/;
-        if (!phoneRegex.test(formData.phone)) {
-            toast.error("Please enter a valid 10-digit mobile number.");
-            return;
-        }
 
         setLoading(true);
         setError("");
@@ -275,13 +268,12 @@ export default function Auth() {
                                     <select name="role" value={forgotData.role} onChange={handleForgotChange} className="mb-3">
                                         <option value="citizen">Citizen</option>
                                         <option value="mc">Municipal Corp (MC)</option>
-                                        <option value="admin">Admin</option>
                                     </select>
                                     <input
                                         name="identifier"
                                         value={forgotData.identifier}
                                         onChange={handleForgotChange}
-                                        placeholder="Email or Phone Number"
+                                        placeholder="Email Address"
                                         required
                                     />
                                     <button type="submit" className="button button--primary w-100 mt-2" disabled={loading}>
@@ -335,7 +327,6 @@ export default function Auth() {
 
                             <input name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Full name" required />
                             <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email address" required />
-                            <input name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone number" required />
 
                             <select name="country" value={formData.country} onChange={handleChange} required>
                                 <option value="">Select Country</option>
