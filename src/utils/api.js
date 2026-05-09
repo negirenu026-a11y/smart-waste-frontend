@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://smart-waste-backend-od1c.onrender.com/api',
+    baseURL: 'https://smart-waste-backend-8rgj.onrender.com/api',
     withCredentials: true, // Required for cookies
 });
 
