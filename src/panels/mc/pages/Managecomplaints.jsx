@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../utils/api";
+import { resolveMediaUrl } from "../../../utils/mediaUrl";
 import { toast } from "react-toastify";
 import { useSearch } from "../../../context/SearchContext";
 
@@ -147,7 +148,7 @@ const ManageComplaints = () => {
                                             <div className="d-flex align-items-center gap-3">
                                                 <div className="position-relative">
                                                     {c.imageUrl ? (
-                                                        <img src={`http://localhost:4000${c.imageUrl}`} alt="Report" className="rounded" style={{ width: '50px', height: '50px', objectFit: 'cover' }} />
+                                                        <img src={resolveMediaUrl(c.imageUrl)} alt="Report" className="rounded" style={{ width: '50px', height: '50px', objectFit: 'cover' }} />
                                                     ) : (
                                                         <div className="bg-light rounded d-flex align-items-center justify-content-center" style={{ width: '50px', height: '50px' }}>
                                                             <i className="fas fa-image text-muted"></i>
@@ -218,7 +219,7 @@ const ManageComplaints = () => {
                                 <div className="row g-4">
                                     <div className="col-md-6 text-center">
                                         {selectedComplaint.imageUrl ? (
-                                            <img src={`http://localhost:4000${selectedComplaint.imageUrl}`} alt="Issue" className="img-fluid rounded shadow-sm border" style={{ maxHeight: '400px', width: '100%', objectFit: 'contain', background: '#f8f9fa' }} />
+                                            <img src={resolveMediaUrl(selectedComplaint.imageUrl)} alt="Issue" className="img-fluid rounded shadow-sm border" style={{ maxHeight: '400px', width: '100%', objectFit: 'contain', background: '#f8f9fa' }} />
                                         ) : (
                                             <div className="bg-light rounded d-flex align-items-center justify-content-center border" style={{ height: '300px' }}>
                                                 <i className="fas fa-image fa-4x text-muted"></i>
@@ -333,7 +334,7 @@ const ManageComplaints = () => {
                                                 {selectedComplaint.proofImage && (
                                                     <div className="mt-2">
                                                         <label className="small fw-bold d-block mb-1">Proof Image:</label>
-                                                        <img src={`http://localhost:4000${selectedComplaint.proofImage}`} alt="Proof" className="rounded" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+                                                        <img src={resolveMediaUrl(selectedComplaint.proofImage)} alt="Proof" className="rounded" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
                                                     </div>
                                                 )}
                                             </div>

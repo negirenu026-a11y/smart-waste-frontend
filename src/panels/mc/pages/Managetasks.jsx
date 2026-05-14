@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../utils/api";
+import { resolveMediaUrl } from "../../../utils/mediaUrl";
 import { toast } from "react-toastify";
 import { useSearch } from "../../../context/SearchContext";
 
@@ -318,8 +319,8 @@ const ManageTasks = () => {
                                                         </>
                                                     ) : (
                                                         <div className="d-flex align-items-center gap-2">
-                                                            {task.completionProof && (
-                                                                <img src={`http://localhost:4000${task.completionProof}`}
+                                                            {(task.completionProof || task.proofImage) && (
+                                                                <img src={resolveMediaUrl(task.completionProof || task.proofImage)}
                                                                     alt="Proof" className="rounded border"
                                                                     style={{ width: 36, height: 36, objectFit: 'cover' }} />
                                                             )}

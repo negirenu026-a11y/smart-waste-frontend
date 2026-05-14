@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../../utils/api";
+import { resolveMediaUrl } from "../../../utils/mediaUrl";
 import { useSearch } from "../../../context/SearchContext";
 
 const ManageTasks = () => {
@@ -77,7 +78,7 @@ const ManageTasks = () => {
                                         </td>
                                         <td>
                                             <div className="d-flex align-items-center gap-2">
-                                                <img src={task.workerPhoto || `https://ui-avatars.com/api/?name=${task.assignedTo || "Worker"}`} alt="Worker" className="rounded-circle" style={{ width: '30px', height: '30px' }} />
+                                                <img src={resolveMediaUrl(task.workerPhoto) || `https://ui-avatars.com/api/?name=${encodeURIComponent(task.assignedTo || "Worker")}`} alt="Worker" className="rounded-circle" style={{ width: '30px', height: '30px' }} />
                                                 <span>{task.assignedTo || "Unassigned"}</span>
                                             </div>
                                         </td>
@@ -88,9 +89,9 @@ const ManageTasks = () => {
                                             </span>
                                         </td>
                                         <td>
-                                            {task.proofImage ? (
-                                                <div className="d-inline-block position-relative group" style={{ cursor: 'pointer' }} onClick={() => window.open(`http://localhost:4000${task.proofImage}`)}>
-                                                    <img src={`http://localhost:4000${task.proofImage}`} alt="Proof" className="rounded shadow-sm border" style={{ width: '60px', height: '40px', objectFit: 'cover' }} />
+                                            {(task.completionProof || task.proofImage) ? (
+                                                <div className="d-inline-block position-relative group" style={{ cursor: 'pointer' }} onClick={() => window.open(resolveMediaUrl(task.completionProof || task.proofImage))}>
+                                                    <img src={resolveMediaUrl(task.completionProof || task.proofImage)} alt="Proof" className="rounded shadow-sm border" style={{ width: '60px', height: '40px', objectFit: 'cover' }} />
                                                     <div className="position-absolute top-0 start-0 w-100 h-100 bg-dark bg-opacity-25 d-flex align-items-center justify-content-center opacity-0 hover-opacity-100 transition-all rounded">
                                                         <i className="fas fa-search-plus text-white"></i>
                                                     </div>

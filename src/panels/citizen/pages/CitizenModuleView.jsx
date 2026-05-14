@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../../utils/api';
+import { resolveMediaUrl } from '../../../utils/mediaUrl';
 import { toast } from 'react-toastify';
 import { useSearch } from '../../../context/SearchContext';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
@@ -468,7 +469,7 @@ const CitizenModuleView = () => {
                         <div key={c._id} className="col-md-6 col-lg-4">
                             <div className="dashboard-card p-0 overflow-hidden shadow-sm border-0 bg-white h-100">
                                 <div className="position-relative">
-                                    <img src={`http://localhost:4000${c.imageUrl}`} className="w-100" style={{ height: '180px', objectFit: 'cover' }} alt="Complaint" />
+                                    <img src={resolveMediaUrl(c.imageUrl)} className="w-100" style={{ height: '180px', objectFit: 'cover' }} alt="Complaint" />
                                     <span className={`badge position-absolute top-0 end-0 m-3 ${c.status === 'Resolved' ? 'bg-success' : c.status === 'In Process' ? 'bg-warning text-dark' : 'bg-danger'}`}>
                                         {c.status}
                                     </span>
@@ -509,11 +510,11 @@ const CitizenModuleView = () => {
                                                 <div className="before-after-wrap d-flex gap-2 mb-3">
                                                     <div className="flex-1 text-center">
                                                         <small className="d-block text-muted mb-1" style={{ fontSize: '0.6rem' }}>Before</small>
-                                                        <img src={`http://localhost:4000${c.imageUrl}`} className="rounded border w-100" style={{ height: '60px', objectFit: 'cover' }} alt="Before" />
+                                                        <img src={resolveMediaUrl(c.imageUrl)} className="rounded border w-100" style={{ height: '60px', objectFit: 'cover' }} alt="Before" />
                                                     </div>
                                                     <div className="flex-1 text-center">
                                                         <small className="d-block text-muted mb-1" style={{ fontSize: '0.6rem' }}>After</small>
-                                                        <img src={`http://localhost:4000${c.proofImage}`} className="rounded border w-100" style={{ height: '60px', objectFit: 'cover' }} alt="After" />
+                                                        <img src={resolveMediaUrl(c.proofImage)} className="rounded border w-100" style={{ height: '60px', objectFit: 'cover' }} alt="After" />
                                                     </div>
                                                 </div>
                                             )}

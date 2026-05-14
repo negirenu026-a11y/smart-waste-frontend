@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../../utils/api';
+import { resolveMediaUrl } from '../../../utils/mediaUrl';
 import { toast } from 'react-toastify';
 import { useSearch } from '../../../context/SearchContext';
 
@@ -76,7 +77,7 @@ const History = () => {
                                         <td className="ps-4">
                                             <div className="d-flex align-items-center gap-3">
                                                 {c.imageUrl && (
-                                                    <img src={`http://localhost:4000${c.imageUrl}`} alt="Issue" className="rounded" style={{ width: '40px', height: '40px', objectFit: 'cover' }} />
+                                                    <img src={resolveMediaUrl(c.imageUrl)} alt="Issue" className="rounded" style={{ width: '40px', height: '40px', objectFit: 'cover' }} />
                                                 )}
                                                 <span className="fw-bold text-primary">{c.category || c.type}</span>
                                             </div>
@@ -116,7 +117,7 @@ const History = () => {
                             <div className="modal-body p-4">
                                 {selectedComplaint.imageUrl && (
                                     <div className="mb-4 text-center">
-                                        <img src={`http://localhost:4000${selectedComplaint.imageUrl}`} alt="Issue" className="img-fluid rounded shadow-sm border" style={{ maxHeight: '250px' }} />
+                                        <img src={resolveMediaUrl(selectedComplaint.imageUrl)} alt="Issue" className="img-fluid rounded shadow-sm border" style={{ maxHeight: '250px' }} />
                                     </div>
                                 )}
                                 <div className="mb-3">
@@ -146,7 +147,7 @@ const History = () => {
                                         {selectedComplaint.proofImage && (
                                             <div className="text-center mt-2 mb-3">
                                                 <label className="small fw-bold d-block text-muted text-start mb-1">Resolution Proof:</label>
-                                                <img src={`http://localhost:4000${selectedComplaint.proofImage}`} alt="Proof" className="img-fluid rounded border shadow-sm" style={{ maxHeight: '200px' }} />
+                                                <img src={resolveMediaUrl(selectedComplaint.proofImage)} alt="Proof" className="img-fluid rounded border shadow-sm" style={{ maxHeight: '200px' }} />
                                             </div>
                                         )}
 
