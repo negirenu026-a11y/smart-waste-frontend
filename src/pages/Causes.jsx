@@ -8,8 +8,8 @@ const Causes = () => {
             id: 1,
             title: "Air Quality Monitoring",
             description: "Campaigning for cleaner air and reduction of harmful industrial emissions in our urban centers.",
-            goal: "$5000",
-            raised: "$3200",
+            goal: "₹5000",
+            raised: "₹3200",
             image: "/img/causes-1.jpg",
             progress: 64
         },
@@ -17,8 +17,8 @@ const Causes = () => {
             id: 2,
             title: "Environmental Education",
             description: "Empowering the next generation with knowledge about zero-waste living and sustainability.",
-            goal: "$5000",
-            raised: "$3200",
+            goal: "₹5000",
+            raised: "₹3200",
             image: "/img/causes-2.jpg",
             progress: 64
         },
@@ -26,8 +26,8 @@ const Causes = () => {
             id: 3,
             title: "Community Advocacy",
             description: "Supporting citizen-led movements to demand better environmental policies and services.",
-            goal: "$5000",
-            raised: "$3200",
+            goal: "₹5000",
+            raised: "₹3200",
             image: "/img/causes-3.jpg",
             progress: 64
         },
@@ -35,8 +35,8 @@ const Causes = () => {
             id: 4,
             title: "Nature Restoration",
             description: "Joining hands to plant trees and restore local habitats for a greener future.",
-            goal: "$5000",
-            raised: "$3200",
+            goal: "₹5000",
+            raised: "₹3200",
             image: "/img/donation-1.jpg",
             progress: 64
         }
@@ -60,12 +60,12 @@ const Causes = () => {
                                     <h5 className="mb-3">{cause.title}</h5>
                                     <p className="text-secondary small mb-4">{cause.description}</p>
                                     <div className="progress rounded-pill mb-2" style={{ height: '10px' }}>
-                                        <div 
-                                            className="progress-bar bg-primary" 
-                                            role="progressbar" 
-                                            style={{ width: `${cause.progress}%` }} 
-                                            aria-valuenow={cause.progress} 
-                                            aria-valuemin="0" 
+                                        <div
+                                            className="progress-bar bg-primary"
+                                            role="progressbar"
+                                            style={{ width: `${cause.progress}%` }}
+                                            aria-valuenow={cause.progress}
+                                            aria-valuemin="0"
                                             aria-valuemax="100"
                                         ></div>
                                     </div>

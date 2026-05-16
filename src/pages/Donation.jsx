@@ -50,8 +50,8 @@ const Donation = () => {
                                     <h6 className="text-white text-uppercase mb-2">{card.category}</h6>
                                     <h3 className="text-white mb-2">{card.title}</h3>
                                     <p className="text-white-50 mb-4">{card.subtitle}</p>
-                                    <button 
-                                        className="btn btn-primary rounded-pill py-2 px-4 fw-bold shadow-sm" 
+                                    <button
+                                        className="btn btn-primary rounded-pill py-2 px-4 fw-bold shadow-sm"
                                         onClick={() => handleDonateClick(card.category)}
                                     >
                                         Donate Now
@@ -83,7 +83,7 @@ const Donation = () => {
                                         <input type="email" className="form-control border-0 bg-light px-3 py-2" placeholder="Your Email" />
                                     </div>
                                     <div className="mb-3">
-                                        <label className="form-label small fw-bold">Amount ($)</label>
+                                        <label className="form-label small fw-bold">Amount (₹)</label>
                                         <input type="number" className="form-control border-0 bg-light px-3 py-2" placeholder="Donation Amount" />
                                     </div>
                                     <div className="mb-3">
